@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <!-- Created using Storyline 360 x64 - http://www.articulate.com  -->
-  <!-- version: 3.98.34380.0 -->
+  <!-- version: 3.100.34725.0 -->
   <title>Calculate Assignment Start Date (E0001)</title>
   <meta http-equiv="x-ua-compatible" content="IE=edge"/>
   <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no,shrink-to-fit=no,minimal-ui"/>
@@ -28,7 +28,7 @@
       captureRc: false,
       browserSize: 'optimal',
       bgColor: '#FFFFFF',
-      features: 'DropInAcc,DropInBase,DropInCore,DropInInteractions,DropInVideo,JsApiBasics,MathExpressions,MorphTransition,MultipleQuizTracking,SetFocusTrigger',
+      features: 'DropInBase,JsApiBasics,MagnifierSupport,MathExpressions,MorphTransition,MultipleQuizTracking,NativePrompts,PlayerSizeOption,TextEntryCharacterLimit',
       themeName: 'classic',
       preloaderColor: '#FFFFFF',
       suppressAnalytics: false,
@@ -36,8 +36,8 @@
       publishSource: 'storyline',
       aid: 'aid|a9f2750e-3a2c-49a7-8d7a-d3fd2ba8b0c9',
       cid: '33e6de7f-e7cc-4722-bb39-2c1e2b3758ab',
-      playerVersion: '3.98.34380.0',
-      publishTimestamp: '2025-04-15T18:03:24.2583913Z',
+      playerVersion: '3.100.34725.0',
+      publishTimestamp: '2025-05-30T14:47:51.3032748Z',
       maxIosVideoElements: 10,
       connectionSettings: { mode: 'disabled' },
       hasFeature: function(feature) {
@@ -62,6 +62,15 @@
       }
 
     };
+
+    if (window.flagsUnderTest != null) {
+      window.globals.features = window.flagsUnderTest.reduce((accum, feature) => {
+        if (!accum.includes(feature)) {
+          accum.push(feature);
+        }
+        return accum;
+      }, window.globals.features.split(',')).join();
+    }
   </script>
   <script>
     var isIe11 = ('ActiveXObject' in window || window.MSBlobBuilder != null)
@@ -73,7 +82,7 @@
   </script>
 
   <script>
-    if (window.globals.hasFeature('NewAiCourseTranslation')) {
+    if (window.globals.hasFeature('Localization')) {
       
       
     }
